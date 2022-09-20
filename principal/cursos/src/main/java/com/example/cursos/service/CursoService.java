@@ -1,6 +1,7 @@
 package com.example.cursos.service;
 
 import com.example.cursos.entity.Curso;
+import com.example.cursos.entity.CursoUsuario;
 import com.example.cursos.model.Usuario;
 
 import java.util.List;
@@ -16,7 +17,13 @@ public interface CursoService {
 
     void delete(Long id);
 
-    Usuario addUsuario(Usuario usuario, Long Id);
-    Usuario removeUsuario(Usuario usuario, Long Id);
+    //agregar un usuario a un curso
+    CursoUsuario addUsuario(Long usuarioId, Long Id);
+
+    void removeUsuario(Long usuarioId, Long Id);
+
+    List<CursoUsuario> getCursoUsuarios(Long cursoId);
+
+    List<Usuario> getUsuarios(Iterable<Long> ids);
 
 }

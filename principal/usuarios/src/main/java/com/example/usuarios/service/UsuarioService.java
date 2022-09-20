@@ -16,4 +16,6 @@ public interface UsuarioService {
 
     void delete(Long id);
 
+    List<Usuario> findAllByIds(Iterable<Long> ids);
+
 }

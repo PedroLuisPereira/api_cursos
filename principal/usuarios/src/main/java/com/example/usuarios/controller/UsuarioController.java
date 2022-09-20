@@ -36,6 +36,12 @@ public class UsuarioController {
         }
     }
 
+    @GetMapping("/curso/usuarios")
+    public ResponseEntity<?> showByCurso(@RequestParam List<Long> ids) {
+        return ResponseEntity.ok().body(usuarioService.findAllByIds(ids));
+    }
+
+
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<?> store(@Valid @RequestBody Usuario usuario, BindingResult bindingResult) {
