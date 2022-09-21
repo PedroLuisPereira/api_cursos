@@ -17,13 +17,15 @@ public interface CursoService {
 
     void delete(Long id);
 
-    //agregar un usuario a un curso
-    CursoUsuario addUsuario(Long usuarioId, Long Id);
+    // //agregar un usuario a un curso
+    // //CursoUsuario addUsuario(Long usuarioId, Long Id);
 
-    void removeUsuario(Long usuarioId, Long Id);
+    // //void removeUsuario(Long usuarioId, Long Id);
 
-    List<CursoUsuario> getCursoUsuarios(Long cursoId);
+    
 
-    List<Usuario> getUsuarios(Iterable<Long> ids);
+    // Usuario getUsuario(Long id);
+
+    // List<Usuario> getUsuarios(Iterable<Long> ids);
 
 }

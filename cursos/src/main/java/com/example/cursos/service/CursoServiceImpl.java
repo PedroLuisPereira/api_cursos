@@ -20,12 +20,6 @@ public class CursoServiceImpl implements CursoService {
     @Autowired
     private CursoRepository cursoRepository;
 
-    @Autowired
-    private UsuarioClientRest usuarioClientRest;
-
-    @Autowired
-    private CursoUsuarioRepository cursoUsuarioRepository;
-
     @Override
     @Transactional(readOnly = true)
     public List<Curso> findAll() {
@@ -48,44 +42,46 @@ public class CursoServiceImpl implements CursoService {
         cursoRepository.deleteById(id);
     }
 
-    @Override
-    @Transactional
-    public CursoUsuario addUsuario(Long  usuarioId, Long cursoId) {
+    // // @Override
+    // // @Transactional
+    // // public CursoUsuario addUsuario(Long  usuarioId, Long cursoId) {
 
-        //buscar curso
-        Optional<Curso> optionalCurso = cursoRepository.findById(cursoId);
+    // //     //buscar curso
+    // //     Optional<Curso> optionalCurso = cursoRepository.findById(cursoId);
 
-        //validar si existe el cursos
-        if(optionalCurso.isPresent()){
-            //validar si existe usuario
-            Usuario usuario = usuarioClientRest.show(usuarioId);
-            System.out.println(usuario);
+    // //     //validar si existe el cursos
+    // //     if(optionalCurso.isPresent()){
+    // //         //validar si existe usuario
+    // //         Usuario usuario = usuarioClientRest.show(usuarioId);
+    // //         System.out.println(usuario);
 
-            //agregar datos
-            CursoUsuario cursoUsuario = new CursoUsuario();
-            cursoUsuario.setCursoId(cursoId);
-            cursoUsuario.setUsuarioId(usuarioId);
-            cursoUsuarioRepository.save(cursoUsuario);
-            return cursoUsuario;
-        }
+    // //         //agregar datos
+    // //         CursoUsuario cursoUsuario = new CursoUsuario();
+    // //         cursoUsuario.setCursoId(cursoId);
+    // //         cursoUsuario.setUsuarioId(usuarioId);
+    // //         cursoUsuarioRepository.save(cursoUsuario);
+    // //         return cursoUsuario;
+    // //     }
 
-        return null;
-    }
+    // //     return null;
+    // // }
 
-    @Override
-    @Transactional
-    public void removeUsuario(Long usuarioId, Long Id) {
-        
-    }
+    
 
-    @Override
-    public List<Usuario> getUsuarios(Iterable<Long> ids) {
-        return  usuarioClientRest.getUsuario(ids) ;
-    }
+    // @Override
+    // public List<Usuario> getUsuarios(Iterable<Long> ids) {
+    //     return  usuarioClientRest.getUsuario(ids) ;
+    // }
 
-    @Override
-    @Transactional
-    public List<CursoUsuario> getCursoUsuarios(Long cursoId) {
-        return cursoRepository.findByCursoId(cursoId);
-    }
+    // @Override
+    // @Transactional
+    // public List<CursoUsuario> getCursoUsuarios(Long cursoId) {
+    //     return cursoRepository.findByCursoId(cursoId);
+    // }
+
+    // @Override
+    // public Usuario getUsuario(Long id) {
+    //     // TODO Auto-generated method stub
+    //     return null;
+    // }
 }

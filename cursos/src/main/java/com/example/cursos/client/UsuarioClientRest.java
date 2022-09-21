@@ -15,13 +15,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 public interface UsuarioClientRest {
 
     @GetMapping("/")
-    public Usuario index();
+    public Usuario getUsuarioAll();
 
     @GetMapping("/{id}")
-    public Usuario show(@PathVariable Long id);
+    public Usuario getUsuario(@PathVariable Long id);
 
     @GetMapping("/curso/usuarios")
-    public List<Usuario> getUsuario(@RequestParam Iterable<Long> ids);
+    public List<Usuario> getUsuarios(@RequestParam Iterable<Long> ids);
 
     @PostMapping("/")
     public  Usuario store(@RequestBody Usuario usuario);

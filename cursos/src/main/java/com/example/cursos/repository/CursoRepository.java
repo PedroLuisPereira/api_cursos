@@ -10,14 +10,7 @@ import org.springframework.data.jpa.repository.Query;
 
 public interface CursoRepository extends JpaRepository<Curso, Long> {
 
-     /**
-     * Buscar 
-     * @param cedula
-     * @param celular
-     * @return
-     */
-    @Query(value = "SELECT l FROM CursoUsuario l WHERE l.cursoId = ?1")
-    List<CursoUsuario> findByCursoId(Long cursoId);
+   
 }
 
 
