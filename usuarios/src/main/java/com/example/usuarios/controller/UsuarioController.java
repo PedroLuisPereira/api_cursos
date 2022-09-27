@@ -36,6 +36,11 @@ public class UsuarioController {
         }
     }
 
+    /**
+     * Listar usuarios por su id.
+     * @param ids
+     * @return
+     */
     @GetMapping("/curso/usuarios")
     public ResponseEntity<?> showByCurso(@RequestParam List<Long> ids) {
         return ResponseEntity.ok().body(usuarioService.findAllByIds(ids));

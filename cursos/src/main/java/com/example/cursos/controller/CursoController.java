@@ -32,6 +32,7 @@ public class CursoController {
     @Autowired
     private CursoUsuarioService cursoUsuarioService;
 
+
     /**
      * Listar todos los cursos
      * 
@@ -148,6 +149,11 @@ public class CursoController {
 
     }
 
+    /**
+     * Agregar un usuario a un curso  
+     * @param cursoUsuario
+     * @return
+     */
     @PostMapping("/curso/usuario")
     public ResponseEntity<?> addUsuario(@RequestBody CursoUsuario cursoUsuario) {
         Map<String, String> errors = new HashMap<>();
@@ -166,6 +172,11 @@ public class CursoController {
 
     }
 
+    /**
+     * Remover un usuario de un curso
+     * @param cursoUsuario
+     * @return
+     */
     @DeleteMapping("/curso/usuario")
     public ResponseEntity<?> removeUsuario(@RequestBody CursoUsuario cursoUsuario) {
         Map<String, String> errors = new HashMap<>();
@@ -186,5 +197,23 @@ public class CursoController {
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
 
     }
+
+    /**
+     * listar todos los usuarios
+     * 
+     * @param id
+     * @return
+     */
+    @GetMapping("/curso/usuarios")
+    public ResponseEntity<?> prubas() {
+
+        // buscar los usuaros de la api usuarios
+        List<Usuario> usuarios = usuarioClientRest.getUsuarioAll();
+
+        // respuesta
+        return ResponseEntity.ok().body(usuarios);
+    }
+
+
 
 }

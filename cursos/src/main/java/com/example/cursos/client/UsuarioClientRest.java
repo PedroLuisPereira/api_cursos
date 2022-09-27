@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public interface UsuarioClientRest {
 
     @GetMapping("/")
-    public Usuario getUsuarioAll();
+    public List<Usuario> getUsuarioAll();
 
     @GetMapping("/{id}")
     public Usuario getUsuario(@PathVariable Long id);
